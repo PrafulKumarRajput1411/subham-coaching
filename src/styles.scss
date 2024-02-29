@@ -1,8 +1,18 @@
 /********** Template CSS **********/
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Permanent+Marker&display=swap');
+
 :root {
     --primary: #06BBCC;
     --light: #F0FBFC;
     --dark: #181d38;
+}
+
+.mainHeading {
+    font-family: 'Black Ops One', system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 26px;
+
 }
 
 .fw-medium {
@@ -434,3 +444,6 @@
     padding-right: 0;
     border-right: none;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
