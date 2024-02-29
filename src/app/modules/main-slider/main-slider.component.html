@@ -1,0 +1,43 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let item of imageAndDataArray;let i=index">
+        <div class="picsum-img-wrapper">
+            <img src="{{'assets/images/img/c'+(i+1)+'.jpg'}}" style="width: 100vw; height: auto;"
+                alt="Random first slide" />
+        </div>
+        <div class="carousel-caption carouselCustomCss">
+
+            <div class="container">
+                <div class="row justify-content-start">
+                    <div class="col-sm-10 col-lg-8">
+                        <h5 class="text-primary text-uppercase mb-3 animated slideInDown">{{item.smallHeading}}
+                        </h5>
+                        <h1 class="display-3 text-white animated slideInDown sliderMainHeading">{{item.mainHeading}}
+                        </h1>
+
+                        <a *ngIf="item.readMore" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
+                            More</a>
+                        <a *ngIf="item.joinNow" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <!-- <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img [src]="images[1]" style="width: 100vw; height:600px" alt="Random second slide" />
+        </div>
+        <div class="carousel-caption">
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img [src]="images[2]" style="width: 100vw; height:600px" alt="Random third slide" />
+        </div>
+        <div class="carousel-caption">
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+    </ng-template> -->
+</ngb-carousel>
