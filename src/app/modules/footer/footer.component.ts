@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CommanServiceService } from 'src/app/services/comman/comman-service.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-
+  sharedData: any;
+  constructor(
+    private router: Router,
+    private commanServie: CommanServiceService
+  ) {
+    this.commanServie.currentData.subscribe((data: any) => {
+      this.sharedData = data
+    })
+  }
+  changeTab(id: any) {
+    if (id == 2) {
+      this.router.navigateByUrl('/about')
+    } else if (id == 3) {
+      this.router.navigateByUrl('/contact-us')
+    }
+    this.sharedData.selectedId = id
+    console.log(this.commanServie.currentData)
+  }
 }

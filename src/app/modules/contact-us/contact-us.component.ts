@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommanServiceService } from 'src/app/services/comman/comman-service.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent {
+  constructor(
+    private commanService: CommanServiceService
+  ) {
 
+  }
 }

@@ -16,7 +16,8 @@
 
                         <a *ngIf="item.readMore" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
                             More</a>
-                        <a *ngIf="item.joinNow" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                        <a *ngIf="item.joinNow" class="btn btn-light py-md-3 px-md-5 animated slideInRight"
+                            (click)="getData()">Join Now</a>
                     </div>
                 </div>
             </div>
