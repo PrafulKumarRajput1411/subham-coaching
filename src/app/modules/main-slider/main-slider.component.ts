@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CallAPIService } from 'src/app/services/call-api.service';
 
 @Component({
   selector: 'app-main-slider',
@@ -11,8 +12,16 @@ export class MainSliderComponent {
     { smallHeading: 'Best Online Courses', mainHeading: 'The Best Online Learning Platform', readMore: false, joinNow: true },
     { smallHeading: 'Best Online Courses', mainHeading: 'Get Educated Online From Your Home', readMore: false, joinNow: true }
   ]
-  constructor() {
+  constructor(
+    private callAPI: CallAPIService
+  ) {
 
   }
-
+  getData() {
+    this.callAPI.getData().then((res: any) => {
+      console.log(res)
+    }).catch((err: any) => {
+      console.log(err)
+    })
+  }
 }

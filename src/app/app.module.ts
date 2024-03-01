@@ -7,6 +7,7 @@ import { ModulesModule } from './modules/modules.module';
 import { MainHeaderComponent } from './modules/main-header/main-header.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.modules';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.modules';
   imports: [
     BrowserModule,
     // ModulesModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule
   ],

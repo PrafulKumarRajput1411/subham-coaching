@@ -31,9 +31,15 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/css/css/bootstrap.min.css"
+              "src/assets/css/css/bootstrap.min.css",
+              "src/assets/crousel/lib/animate/animate.min.css",
+              "src/assets/crousel/lib/owlcarousel/assets/owl.carousel.min.css"
             ],
             "scripts": [
+              "src/assets/crousel/lib/wow/wow.min.js",
+              "src/assets/crousel/lib/easing/easing.min.js",
+              "src/assets/crousel/lib/waypoints/waypoints.min.js",
+              "src/assets/crousel/lib/owlcarousel/owl.carousel.min.js",
               "src/assets/js/js/main.js"
             ]
           },

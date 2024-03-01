@@ -18,8 +18,16 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a *ngFor="let item of headerList" (click)="changePage(item.id,item.redirectUrl)"
-                class="nav-item nav-link mainHeaderLink"
-                [ngClass]="selectedPageId==item.id?'active':'inactive'">{{item.title}}</a>
+                class="nav-item nav-link mainHeaderLink" [ngClass]="sharedData.selectedId==item.id?'active':'inactive'">
+                {{item.title}}
+                <span></span>
+
+            </a>
+            <a class="nav-item nav-link mainHeaderLink whatsappIconContainer" (click)="gotoWhatsApp()">
+                <span class="chatOnHeading">Chat On</span>
+                <img class="whatsappLogo" src="assets/images/img/whatsapp.png" alt="">
+
+            </a>
 
             <!-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
