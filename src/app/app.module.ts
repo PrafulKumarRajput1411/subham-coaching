@@ -8,6 +8,7 @@ import { MainHeaderComponent } from './modules/main-header/main-header.component
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.modules';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     // ModulesModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     NgbModule
   ],
