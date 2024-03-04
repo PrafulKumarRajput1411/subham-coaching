@@ -11,7 +11,9 @@ import { CoursesComponent } from './courses/courses.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { ToastrModule } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -31,6 +33,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+    }),
   ]
 })
 export class ModulesModule { }
