@@ -51,6 +51,13 @@ export class MainHeaderComponent {
     }
   }
   gotoWhatsApp() {
-    window.open('https://api.whatsapp.com/send?phone=' + ConstantValues.whatsAppNumber, '_blank');
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    console.log(w, h)
+    if (w < 1440) {
+      window.open('https://api.whatsapp.com/send?phone=' + ConstantValues.whatsAppNumber, '_blank');
+    } else {
+      window.open('https://web.whatsapp.com/send?phone=' + ConstantValues.whatsAppNumber, '_blank');
+    }
   }
 }
