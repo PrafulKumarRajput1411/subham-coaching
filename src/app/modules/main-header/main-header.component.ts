@@ -31,9 +31,12 @@ export class MainHeaderComponent {
     console.log(Object.values(this.headerList[0]))
     let url = this.commanService.getActivatedURLArray()
     this.headerList.forEach((element) => {
-      if (element['redirectUrl'].includes(url[url.length - 1])) {
-        // this.selectedPageId = element.id
-        this.sharedData.selectedId = element.id
+      if (url[url.length - 1] != '') {
+        if (element['redirectUrl'].includes(url[url.length - 1])) {
+          // this.selectedPageId = element.id
+          console.log(url)
+          this.sharedData.selectedId = element.id
+        }
       }
     })
     console.log(url)
