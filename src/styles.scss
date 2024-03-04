@@ -46,6 +46,11 @@
     opacity: 1;
 }
 
+.error {
+    font-size: 12px;
+    color: red;
+    margin-top: 3px;
+}
 
 /*** Button ***/
 .btn {
@@ -113,7 +118,7 @@
 @media (max-width: 991.98px) {
     .navbar-light .navbar-nav .nav-link {
         margin-right: 0;
-        padding: 10px 10px;
+        padding: 10px 10px0;
     }
 
     .navbar-light .navbar-nav {

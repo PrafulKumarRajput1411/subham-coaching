@@ -8,6 +8,7 @@ export class EnviourmentConstants {
 }
 export class ConstantValues {
     public static whatsAppNumber = '6398276273';
+    public static email = 'radianttutorials11@gmail.com'
 }
 export class ServerUrls {
     public static sendContactUsEmail = { url: '/api/sendEmail', method: "POST" };
