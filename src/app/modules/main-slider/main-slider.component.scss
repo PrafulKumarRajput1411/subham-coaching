@@ -16,7 +16,13 @@
     }
 }
 
-@media (min-width:500px) and (max-width:885px) {
+@media (min-width:499px) and (max-width:720px) {
+    .carouselCustomCss {
+        top: 10% !important;
+    }
+}
+
+@media (min-width:721px) and (max-width:885px) {
     .carouselCustomCss {
         top: 20% !important;
     }
