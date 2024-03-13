@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookDemoSessionComponent } from './book-demo-session/book-demo-session.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     CoursesComponent,
     ContactUsComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
+    BookDemoSessionComponent
   ],
   imports: [
     CommonModule,

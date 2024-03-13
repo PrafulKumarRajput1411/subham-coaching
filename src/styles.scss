@@ -90,6 +90,33 @@
     border-radius: 0px;
 }
 
+// scroll bar css start
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #8f8f8f;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #6d6a6a;
+    cursor: pointer;
+    width: 10px;
+}
+
+
+//scroll bar css end
 
 /*** Navbar ***/
 .navbar .dropdown-toggle::after {
