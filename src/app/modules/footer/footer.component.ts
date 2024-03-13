@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommanServiceService } from 'src/app/services/comman/comman-service.service';
 import { ConstantValues } from 'src/app/services/http/urls';
+import { ChangeTitleService } from 'src/app/services/titleService/change-title.service';
 
 @Component({
   selector: 'app-footer',
@@ -14,7 +15,8 @@ export class FooterComponent {
   email: any = ''
   constructor(
     private router: Router,
-    private commanServie: CommanServiceService
+    private commanServie: CommanServiceService,
+    private changeTitle: ChangeTitleService
   ) {
     this.phoneNumber = ConstantValues.whatsAppNumber;
     this.email = ConstantValues.email
@@ -29,10 +31,16 @@ export class FooterComponent {
       this.router.navigateByUrl('/contact-us')
     }
     this.sharedData.selectedId = id
+    this.changeTitle.setDynamicTitle(id)
     console.log(this.commanServie.currentData)
+  }
+  bookDemoSession() {
+    this.changeTitle.changeTitle('Book Demo Session');
+    this.router.navigateByUrl('/book-demo-session')
   }
   goToContactUsPage() {
     this.sharedData.selectedId = 3;
+    this.changeTitle.setDynamicTitle(3)
     this.router.navigateByUrl('/contact-us')
   }
 }
