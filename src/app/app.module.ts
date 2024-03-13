@@ -51,8 +51,8 @@ import { GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, Social
             provider: new GoogleLoginProvider(
 
               /**client api key */
-              // '138887248956 - jkcaambv0r83jgop0vd6kr0lm6poc85q.apps.googleusercontent.com'
-              '290369982684 - i5tufsfq83pnbkdobl76ab0pff7neadj.apps.googleusercontent.com'
+              '138887248956 - jkcaambv0r83jgop0vd6kr0lm6poc85q.apps.googleusercontent.com'
+              // '290369982684 - i5tufsfq83pnbkdobl76ab0pff7neadj.apps.googleusercontent.com'
             )
           }
         ]
