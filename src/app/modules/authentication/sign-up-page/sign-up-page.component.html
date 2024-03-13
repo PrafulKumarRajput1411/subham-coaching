@@ -72,4 +72,5 @@
         </div>
     </div>
 </section>
-<button (click)="google()">Google</button>
+<asl-google-signin-button *ngIf="!user"></asl-google-signin-button>
+<!-- <button (click)="google()">Google</button> -->

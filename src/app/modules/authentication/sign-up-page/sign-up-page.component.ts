@@ -7,16 +7,18 @@ import { GoogleLoginService } from 'src/app/services/googlelogin/google-login.se
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent {
+  user: any;
   constructor(
     private googleSignUp: GoogleLoginService
   ) {
-
+    this.google()
   }
   google() {
-    // this.googleSignUp.signInWithGoogle().then((res: any) => {
-    //   console.log(res)
-    // }).catch((err: any) => {
-    //   console.log(err)
-    // })
+    this.googleSignUp.signInWithGoogle().subscribe((res: any) => {
+      this.user = res
+      // debugger
+      alert(this.user?.name + " " + this.user?.email)
+      console.log(this.user.photoUrl)
+    })
   }
 }

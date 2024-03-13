@@ -4,6 +4,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RouterModule, Routes } from '@angular/router';
+import { GoogleSigninButtonModule, SocialLoginModule } from '@abacritt/angularx-social-login';
 const router: Routes = [
   { path: '', redirectTo: '/authentication/sign-up', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
@@ -20,6 +21,8 @@ const router: Routes = [
   ],
   imports: [
     CommonModule,
+    // SocialLoginModule,
+    GoogleSigninButtonModule,
     RouterModule.forChild(router)
   ]
 })

@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookDemoSessionComponent } from './book-demo-session/book-demo-session.component';
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { BookDemoSessionComponent } from './book-demo-session/book-demo-session.
   ],
   imports: [
     CommonModule,
+    // SocialLoginModule,
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
