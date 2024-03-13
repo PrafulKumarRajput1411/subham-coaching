@@ -13,10 +13,10 @@ export class SignUpPageComponent {
 
   }
   google() {
-    this.googleSignUp.signInWithGoogle().then((res: any) => {
-      console.log(res)
-    }).catch((err: any) => {
-      console.log(err)
-    })
+    // this.googleSignUp.signInWithGoogle().then((res: any) => {
+    //   console.log(res)
+    // }).catch((err: any) => {
+    //   console.log(err)
+    // })
   }
 }
