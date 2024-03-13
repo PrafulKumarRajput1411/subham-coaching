@@ -13,7 +13,8 @@ const routes: Routes = [
     { path: 'about', component: AboutPageComponent },
     { path: 'courses', component: CoursesComponent },
     { path: 'contact-us', component: ContactUsComponent },
-    { path: 'book-demo-session', component: BookDemoSessionComponent }
+    { path: 'book-demo-session', component: BookDemoSessionComponent },
+    { path: 'authentication', loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule) }
 ];
 
 @NgModule({
