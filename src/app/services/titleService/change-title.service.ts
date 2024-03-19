@@ -17,7 +17,7 @@ export class ChangeTitleService {
     let urlArray = url.split('/');
     let title = urlArray[urlArray.length - 1];
     if (title.includes('-')) {
-      title = title.replace('-', ' ');
+      title = title.replaceAll('-', ' ');
     }
     this.changeTitle(title)
 

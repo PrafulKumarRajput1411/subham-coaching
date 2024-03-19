@@ -1,0 +1,34 @@
+.bookDemoSessionDescription {
+    font-size: 16px;
+}
+
+.threeBlockContainer div {
+    width: calc(33% - 10px);
+    // width: 33%;
+}
+
+@media (max-width:380px) {
+    .threeBlockContainer div {
+        width: 100%;
+    }
+
+    .threeBlockContainer div:nth-child(2),
+    .threeBlockContainer div:nth-child(3) {
+
+        margin-top: 24px;
+    }
+}
+
+@media (min-width:381px) and (max-width:465px) {
+
+    .threeBlockContainer div:first-child,
+    .threeBlockContainer div:nth-child(2) {
+        width: calc(50% - 10px);
+
+    }
+
+    .threeBlockContainer div:nth-child(3) {
+        width: 100%;
+        margin-top: 24px;
+    }
+}
