@@ -42,19 +42,19 @@ import {
       provide: 'SocialAuthServiceConfig',
       useValue: {
         autoLogin: false,
+        authType: 'redirect',
+        class: 'custom-google-login-button',
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
               '451680391714-7scph1d7eit1ftucn5q1455a52rc6hb1.apps.googleusercontent.com'
-            )
+            ),
           }
         ]
       } as SocialAuthServiceConfig,
     }
-    // { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
-// 451680391714 - 7scph1d7eit1ftucn5q1455a52rc6hb1.apps.googleusercontent.com
 export class AppModule { }

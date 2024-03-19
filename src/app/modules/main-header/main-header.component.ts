@@ -25,27 +25,22 @@ export class MainHeaderComponent {
     this.setTabId();
   }
   setTabId() {
-    console.log(Object.values(this.headerList[0]))
     let url = this.commanService.getActivatedURLArray()
     this.headerList.forEach((element: any) => {
       if (url[url.length - 1] != '') {
         if (element['redirectUrl'].includes(url[url.length - 1])) {
           this.sharedData.selectedId = element.id
-          this.changeTitle.setDynamicTitle(element.id)
         }
       }
     })
-    console.log(url)
   }
   changePage(id: any, url: any) {
     this.sharedData.selectedId = id;
-    this.changeTitle.setDynamicTitle(id)
     this.router.navigateByUrl(url)
   }
   gotoWhatsApp() {
     var w = window.innerWidth;
     var h = window.innerHeight;
-    console.log(w, h)
     if (w < 1440) {
       window.open('https://api.whatsapp.com/send?phone=' + ConstantValues.whatsAppNumber, '_blank');
     } else {

@@ -31,8 +31,6 @@ export class FooterComponent {
       this.router.navigateByUrl('/contact-us')
     }
     this.sharedData.selectedId = id
-    this.changeTitle.setDynamicTitle(id)
-    console.log(this.commanServie.currentData)
   }
   bookDemoSession() {
     this.changeTitle.changeTitle('Book Demo Session');
@@ -40,7 +38,6 @@ export class FooterComponent {
   }
   goToContactUsPage() {
     this.sharedData.selectedId = 3;
-    this.changeTitle.setDynamicTitle(3)
     this.router.navigateByUrl('/contact-us')
   }
 }

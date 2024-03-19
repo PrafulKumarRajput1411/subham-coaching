@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { CommanServiceService } from '../comman/comman-service.service';
+import { timeInterval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,17 @@ export class ChangeTitleService {
     private commanService: CommanServiceService
   ) {
   }
-  setDynamicTitle(id: any) {
-    let titleName = this.commanService.getHeaderList().filter((data: any) => {
-      return data.id == id;
-    })
-    this.changeTitle(titleName[0].title)
+  setDynamicTitle(url: any) {
+    let urlArray = url.split('/');
+    let title = urlArray[urlArray.length - 1];
+    if (title.includes('-')) {
+      title = title.replace('-', ' ');
+    }
+    this.changeTitle(title)
+
   }
   changeTitle(title: any) {
-    this.titleService.setTitle('Radiant Tutorials | ' + this.commanService.capitalizeFirstLetter(title))
+    this.titleService.setTitle('Radiant Tutorials | ' + this.commanService.makeFirstCapitalOfEveryWord(title))
 
   }
 }

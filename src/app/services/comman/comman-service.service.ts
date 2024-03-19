@@ -29,5 +29,17 @@ export class CommanServiceService {
   capitalizeFirstLetter(str: any) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   }
+  makeFirstCapitalOfEveryWord(str: any) {
+    let newStr = '';
+    let strArray = str.split(' ');
+    strArray.forEach((element: any, index: number) => {
+      if (index == 0) {
+        newStr = newStr + element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
+      } else {
+        newStr = newStr + " " + element.charAt(0).toUpperCase() + element.slice(1).toLowerCase()
+      }
+    })
+    return newStr;
+  }
 
 }
