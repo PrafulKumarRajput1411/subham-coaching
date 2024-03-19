@@ -4,7 +4,7 @@ export const enviroment = {
 };
 
 export class EnviourmentConstants {
-    public static DOMAINPATH = 'https://shubham-coaching-backend.vercel.app'
+    public static DOMAINPATH = 'https://shubham-coachingbackend.vercel.app'
 }
 export class ConstantValues {
     public static whatsAppNumber = '6398276273';
