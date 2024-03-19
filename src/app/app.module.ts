@@ -7,32 +7,54 @@ import { ModulesModule } from './modules/modules.module';
 import { MainHeaderComponent } from './modules/main-header/main-header.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.modules';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+  GoogleSigninButtonModule
+} from '@abacritt/angularx-social-login';
 @NgModule({
   declarations: [
     AppComponent,
     MainHeaderComponent,
-    // HomePageComponent
   ],
   imports: [
     BrowserModule,
-    // ModulesModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    GoogleSigninButtonModule,
+    SocialLoginModule,
     NgbModule,
-    BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       preventDuplicates: true,
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        authType: 'redirect',
+        class: 'custom-google-login-button',
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '451680391714-7scph1d7eit1ftucn5q1455a52rc6hb1.apps.googleusercontent.com'
+            ),
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

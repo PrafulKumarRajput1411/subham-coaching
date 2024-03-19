@@ -50,8 +50,8 @@ export class ContactUsComponent {
         this.contactUsForm.reset()
         this.requestIsProcessing = false;
       }).catch((err: any) => {
-        this.requestIsProcessing = false
-        console.log("Please Try Again Later!")
+        this.requestIsProcessing = false;
+        this.toastr.error("Something Went Wrong! Please Try Again.")
       })
     }
   }

@@ -1,0 +1,44 @@
+.signUpInputIcon {
+    position: relative;
+}
+
+.signUpInputIcon input {
+    padding-left: 30px !important;
+}
+
+.googleSignUpButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.googleSignUpButton div:last-child {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.loginButton:hover {
+    font-weight: 600 !important;
+}
+
+.dd8f8f {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dd8f8f div:nth-child(2) {
+    font-size: 12px;
+}
+
+.dd8f8f div:first-child,
+.dd8f8f div:last-child {
+    border: 0.5px solid var(--text-color-primary);
+    height: 0.5px;
+}
+
+.signUpInputIcon i {
+    position: absolute;
+    top: 38px;
+    left: 7px;
+    font-size: 15px;
+}
