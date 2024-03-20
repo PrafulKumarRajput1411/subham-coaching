@@ -24,4 +24,12 @@ export class CallAPIService {
     let url = this.mainURl + ServerUrls.getData.url;
     return this.httpService.getHttpService(url, '')
   }
+  getClassList() {
+    let url = this.mainURl + ServerUrls.getClassList.url;
+    return this.httpService.getHttpService(url, '');
+  }
+  getBoardList() {
+    let url = this.mainURl + ServerUrls.getBoardList.url;
+    return this.httpService.getHttpService(url, '')
+  }
 }

@@ -13,4 +13,6 @@ export class ConstantValues {
 export class ServerUrls {
     public static sendContactUsEmail = { url: '/api/sendEmail', method: "POST" };
     public static getData = { url: '/api/getData', method: 'GET' }
+    public static getClassList = { url: '/api/getClassList', method: 'GET' }
+    public static getBoardList = { url: '/api/getBoardList', method: 'GET' }
 }
