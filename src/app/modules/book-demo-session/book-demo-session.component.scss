@@ -3,8 +3,17 @@
 }
 
 .threeBlockContainer div {
-    width: calc(33% - 10px);
+    width: calc(33.333333% - 10px);
     // width: 33%;
+}
+
+.selectDemoForm>* {
+    margin-top: 24px !important;
+}
+
+.threeBlockContainer div:nth-child(2),
+.threeBlockContainer div:first-child {
+    // padding-right: 25px !important;
 }
 
 @media (max-width:380px) {

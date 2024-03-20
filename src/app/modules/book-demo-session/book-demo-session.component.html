@@ -17,7 +17,7 @@
             <div class="border overflow-hidden">
 
                 <form [formGroup]="bookDemoSession">
-                    <div class="row gy-4 gy-xl-5 p-2 p-xl-5">
+                    <div class="row gy-4 gy-xl-5 p-2 p-xl-5 selectDemoForm">
                         <div class="col-12">
                             <label for="fullname" class="form-label">Full Name</label>
                             <input type="text" formControlName="fullName" class="form-control" id="fullname"
@@ -69,7 +69,8 @@
                                     <select formControlName="class" name="class" id="class"
                                         (change)="selectClass($event)" class="form-control">
                                         <option value="" hidden selected disabled>Select Class</option>
-                                        <option value="{{item.id}}" *ngFor="let item of classArray">{{item.title}}
+                                        <option value="{{item.class_value}}" *ngFor="let item of classArray">
+                                            {{item.class_title}}
                                         </option>
 
 
@@ -80,7 +81,8 @@
                                             class="text-danger">*</span></label>
                                     <select formControlName="board" name="borad" id="board" class="form-control">
                                         <option value="" selected hidden disabled>Select Board</option>
-                                        <option value="{{item.title}}" *ngFor="let item  of boardArry">{{item.title}}
+                                        <option value="{{item.board_title}}" *ngFor="let item  of boardArry">
+                                            {{item.board_title}}
                                         </option>
 
                                     </select>
@@ -95,6 +97,18 @@
                                     </select>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12">
+                            <label for="demoDate" class="form-label"> Select Date <span class="text-danger">*</span>
+                            </label>
+                            <input type="date" class="form-control" name="demoDate" id="demoDate">
+                        </div>
+                        <div class="col-12">
+                            <label for="timeSlot" class="form-label">Available Time Slot <span
+                                    class="text-danger">*</span></label>
+                            <select name="timeSlot" id="timeSlot" class="form-control">
+                                <option value="" selected disabled hidden>Select Time</option>
+                            </select>
                         </div>
                         <div class="col-12">
                             <label for="message" class="form-label">Write your Query <span
