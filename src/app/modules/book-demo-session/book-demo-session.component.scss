@@ -1,0 +1,38 @@
+.bookDemoSessionDescription {
+    font-size: 16px;
+}
+
+.threeBlockContainer .bookDemoSessionSubBlock {
+    width: calc(33.333333% - 10px);
+    // width: 33%;
+}
+
+.selectDemoForm>* {
+    margin-top: 24px !important;
+}
+
+@media (max-width:380px) {
+    .threeBlockContainer div {
+        width: 100%;
+    }
+
+    .threeBlockContainer .bookDemoSessionSubBlock2,
+    .threeBlockContainer .bookDemoSessionSubBlock3 {
+
+        margin-top: 24px;
+    }
+}
+
+@media (min-width:381px) and (max-width:465px) {
+
+    .threeBlockContainer .bookDemoSessionSubBlock1,
+    .threeBlockContainer .bookDemoSessionSubBlock2 {
+        width: calc(50% - 10px);
+
+    }
+
+    .threeBlockContainer .bookDemoSessionSubBlock3 {
+        width: 100%;
+        margin-top: 24px;
+    }
+}

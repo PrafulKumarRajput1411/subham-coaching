@@ -15,7 +15,19 @@
 
 }
 
-.fw-medium {
+select {
+    background-color: white !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.font-weight-500 {
+    font-weight: 500 !important;
+}
+
+.font-weight-600 {
     font-weight: 600 !important;
 }
 
@@ -31,6 +43,37 @@
     z-index: 99;
 }
 
+select {
+    background-color: white !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.font-weight-500 {
+    font-weight: 500 !important;
+}
+
+.font-weight-600 {
+    font-weight: 600 !important;
+}
+
+.font-weight-700 {
+    font-weight: 700 !important;
+}
+
+.font-size-12 {
+    font-size: 12px !important;
+}
+
+.font-size-14 {
+    font-size: 14px !important;
+}
+
+.font-size-16 {
+    font-size: 16px !important;
+}
 
 /*** Spinner ***/
 #spinner {
