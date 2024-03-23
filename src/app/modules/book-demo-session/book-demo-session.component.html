@@ -2,7 +2,7 @@
     <p></p>
     <div class="row m-0 justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <h3 class=" text-uppercase" style="font-size: clamp(18px, 2vw, 31px)">Book Demo Session</h3>
+            <h3 class=" text-uppercase font-weight-800" style="font-size: clamp(18px, 2vw, 36px)">Book Demo Session</h3>
             <p class="bookDemoSessionDescription mb-4 mb-md-5 mb-xl-8">Join us for an enlightening book demo session
                 tailored
                 specifically for
@@ -14,14 +14,20 @@
     </div>
     <div class="row m-0 justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <div class="border overflow-hidden">
+            <div class="border shadow-lg" style="border-radius: 5px;">
 
                 <form [formGroup]="bookDemoSession">
-                    <div class="row gy-4 gy-xl-5 p-2 p-xl-5 selectDemoForm">
+                    <div class="row p-1 m-0 selectDemoForm">
                         <div class="col-12">
-                            <label for="fullname" class="form-label">Full Name</label>
+                            <label for="fullname" class="form-label">Full Name <span
+                                    class="text-danger">*</span></label>
                             <input type="text" formControlName="fullName" class="form-control" id="fullname"
                                 name="fullname" value="">
+                            <div class="error"
+                                *ngIf="bookDemoSession.get('fullName')?.invalid && (bookDemoSession.get('fullName')?.touched || bookDemoSession.get('fullName')?.dirty)">
+                                <div *ngIf="hasError('fullName','required')">Name is Required*</div>
+                                <div *ngIf="hasError('fullName','pattern')">Only Alphabets are allowed*</div>
+                            </div>
 
                         </div>
                         <div class="col-12 col-md-6">
@@ -36,6 +42,13 @@
                                 </span>
                                 <input formControlName="email" type="email" class="form-control" id="email" name="email"
                                     value="">
+
+
+                            </div>
+                            <div class="error"
+                                *ngIf="bookDemoSession.get('email')?.invalid && (bookDemoSession.get('email')?.touched || bookDemoSession.get('email')?.dirty)">
+                                <div *ngIf="hasError('email','required')">Email is Required*</div>
+                                <div *ngIf="hasError('email','pattern')">Enter Valid Email*</div>
 
                             </div>
 
@@ -54,6 +67,13 @@
                                 <input formControlName="phone" type="tel" class="form-control" id="phone" name="phone"
                                     value="">
                             </div>
+                            <div class="error"
+                                *ngIf="bookDemoSession.get('phone')?.invalid && (bookDemoSession.get('phone')?.touched || bookDemoSession.get('phone')?.dirty)">
+                                <div *ngIf="hasError('phone','required')">Phone is Required*</div>
+                                <div *ngIf="hasError('phone','pattern')">Enter Valid Number</div>
+                                <div *ngIf="hasError('phone','maxlength')">Length Should be 10</div>
+                                <div *ngIf="hasError('phone','minlength')">Length Should be 10</div>
+                            </div>
 
                         </div>
                         <!-- <div class="col-12">
@@ -63,7 +83,7 @@
                         </div> -->
                         <div class="col-12">
                             <div class="row m-0 threeBlockContainer justify-content-between">
-                                <div class=" p-0">
+                                <div class=" p-0 bookDemoSessionSubBlock bookDemoSessionSubBlock1">
                                     <label for="class" class="form-label">Class <span
                                             class="text-danger">*</span></label>
                                     <select formControlName="class" name="class" id="class"
@@ -75,8 +95,14 @@
 
 
                                     </select>
+                                    <div class="error"
+                                        *ngIf="bookDemoSession.get('class')?.invalid && (bookDemoSession.get('class')?.touched || bookDemoSession.get('class')?.dirty)">
+                                        <div *ngIf="hasError('class','required')">Class is Required*</div>
+
+                                    </div>
                                 </div>
-                                <div class=" p-0" *ngIf="isBoardRequired">
+                                <div class=" p-0 bookDemoSessionSubBlock bookDemoSessionSubBlock2"
+                                    *ngIf="isBoardRequired">
                                     <label for="board" class="form-label">Board <span
                                             class="text-danger">*</span></label>
                                     <select formControlName="board" name="borad" id="board" class="form-control">
@@ -86,40 +112,68 @@
                                         </option>
 
                                     </select>
+                                    <div class="error"
+                                        *ngIf="bookDemoSession.get('board')?.invalid && (bookDemoSession.get('board')?.touched || bookDemoSession.get('board')?.dirty)">
+                                        <div *ngIf="hasError('board','required')">Board is Required*</div>
+                                    </div>
                                 </div>
-                                <div class=" p-0" *ngIf="isTypeRequired">
+                                <div class=" p-0 bookDemoSessionSubBlock bookDemoSessionSubBlock3"
+                                    *ngIf="isTypeRequired">
                                     <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
                                     <select formControlName="type" name="type" id="type" class="form-control">
                                         <option value="" selected hidden disabled>Select</option>
                                         <option value="{{item.title}}" *ngFor="let item of mathsTypeArray">
                                             {{item.title}}</option>
-
                                     </select>
+                                    <div class="error"
+                                        *ngIf="bookDemoSession.get('type')?.invalid && (bookDemoSession.get('type')?.touched || bookDemoSession.get('type')?.dirty)">
+                                        <div *ngIf="hasError('type','required')">Type is Required*</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="demoDate" class="form-label"> Select Date <span class="text-danger">*</span>
                             </label>
-                            <input type="date" class="form-control" name="demoDate" id="demoDate">
+                            <input type="date" formControlName="date" class="form-control" (change)="selectDate($event)"
+                                [min]="minDate" [max]="maxDate" name="demoDate" id="demoDate">
+                            <div class="error"
+                                *ngIf="bookDemoSession.get('date')?.invalid && (bookDemoSession.get('date')?.touched || bookDemoSession.get('date')?.dirty)">
+                                <div *ngIf="hasError('date','required')">Date is Required*</div>
+
+                            </div>
                         </div>
                         <div class="col-12">
                             <label for="timeSlot" class="form-label">Available Time Slot <span
                                     class="text-danger">*</span></label>
-                            <select name="timeSlot" id="timeSlot" class="form-control">
+                            <select name="timeSlot" formControlName="timeSlot" id="timeSlot" class="form-control">
                                 <option value="" selected disabled hidden>Select Time</option>
+                                <option
+                                    value="{{item.start_time_hour+':'+item.start_time_min+' '+(item.is_start_AM?'AM':'PM') +' to ' +item.end_time_hour+':'+item.end_time_min+' '+(item.is_end_AM?'AM':'PM')}}"
+                                    *ngFor="let item of timeSlotArrayAccordingToDays">
+                                    {{item.start_time_hour+':'+item.start_time_min+' '+(item.is_start_AM?'AM':'PM')}} to
+                                    {{item.end_time_hour+':'+item.end_time_min+' '+(item.is_end_AM?'AM':'PM')}}
+                                </option>
                             </select>
+                            <div class="error"
+                                *ngIf="bookDemoSession.get('timeSlot')?.invalid && (bookDemoSession.get('timeSlot')?.touched || bookDemoSession.get('timeSlot')?.dirty)">
+                                <div *ngIf="hasError('timeSlot','required')">Time is Required*</div>
+
+                            </div>
+                            <span *ngIf="!isTimeAvailable" class="text-danger font-size-12">Time slots are not available
+                                for this day.</span>
                         </div>
                         <div class="col-12">
-                            <label for="message" class="form-label">Write your Query <span
-                                    class="text-danger">*</span></label>
+                            <label for="message" class="form-label">Write your Query</label>
                             <textarea formControlName="desc" class="form-control" id="message" name="message"
                                 rows="3"></textarea>
+
 
                         </div>
                         <div class="col-12">
                             <div class="d-grid">
-                                <button class="btn btn-primary btn-lg" (click)="submit()">Submit Request</button>
+                                <button class="btn btn-primary btn-lg" [disabled]="isRequestProcessing"
+                                    (click)="submit()">{{isRequestProcessing?'Processing':'Submit Request'}}</button>
                             </div>
                         </div>
 
@@ -130,3 +184,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

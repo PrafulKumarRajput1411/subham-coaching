@@ -2,7 +2,7 @@
     font-size: 16px;
 }
 
-.threeBlockContainer div {
+.threeBlockContainer .bookDemoSessionSubBlock {
     width: calc(33.333333% - 10px);
     // width: 33%;
 }
@@ -11,18 +11,13 @@
     margin-top: 24px !important;
 }
 
-.threeBlockContainer div:nth-child(2),
-.threeBlockContainer div:first-child {
-    // padding-right: 25px !important;
-}
-
 @media (max-width:380px) {
     .threeBlockContainer div {
         width: 100%;
     }
 
-    .threeBlockContainer div:nth-child(2),
-    .threeBlockContainer div:nth-child(3) {
+    .threeBlockContainer .bookDemoSessionSubBlock2,
+    .threeBlockContainer .bookDemoSessionSubBlock3 {
 
         margin-top: 24px;
     }
@@ -30,13 +25,13 @@
 
 @media (min-width:381px) and (max-width:465px) {
 
-    .threeBlockContainer div:first-child,
-    .threeBlockContainer div:nth-child(2) {
+    .threeBlockContainer .bookDemoSessionSubBlock1,
+    .threeBlockContainer .bookDemoSessionSubBlock2 {
         width: calc(50% - 10px);
 
     }
 
-    .threeBlockContainer div:nth-child(3) {
+    .threeBlockContainer .bookDemoSessionSubBlock3 {
         width: 100%;
         margin-top: 24px;
     }

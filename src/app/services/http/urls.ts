@@ -16,4 +16,7 @@ export class ServerUrls {
     public static getData = { url: '/api/getData', method: 'GET' }
     public static getClassList = { url: '/api/getClassList', method: 'GET' }
     public static getBoardList = { url: '/api/getBoardList', method: 'GET' }
+    public static getAvailableDayList = { url: '/api/get-available-days', method: "GET" }
+    public static getListOfAvailableTimeSlot = { url: '/api/get-list-of-avaialbe-time-slot', method: "GET" }
+    public static bookDemoSession = { url: '/api/book-demo-session', method: 'POST' }
 }
