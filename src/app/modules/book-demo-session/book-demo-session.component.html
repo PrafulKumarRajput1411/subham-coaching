@@ -2,7 +2,7 @@
     <p></p>
     <div class="row m-0 justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <h3 class=" text-uppercase" style="font-size: clamp(18px, 2vw, 31px)">Book Demo Session</h3>
+            <h3 class=" text-uppercase font-weight-800" style="font-size: clamp(18px, 2vw, 36px)">Book Demo Session</h3>
             <p class="bookDemoSessionDescription mb-4 mb-md-5 mb-xl-8">Join us for an enlightening book demo session
                 tailored
                 specifically for
@@ -14,12 +14,13 @@
     </div>
     <div class="row m-0 justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <div class="border overflow-hidden">
+            <div class="border shadow-lg" style="border-radius: 5px;">
 
                 <form [formGroup]="bookDemoSession">
-                    <div class="row gy-4 gy-xl-5 p-2 p-xl-5 selectDemoForm">
+                    <div class="row p-1 m-0 selectDemoForm">
                         <div class="col-12">
-                            <label for="fullname" class="form-label">Full Name</label>
+                            <label for="fullname" class="form-label">Full Name <span
+                                    class="text-danger">*</span></label>
                             <input type="text" formControlName="fullName" class="form-control" id="fullname"
                                 name="fullname" value="">
                             <div class="error"
@@ -163,15 +164,10 @@
                                 for this day.</span>
                         </div>
                         <div class="col-12">
-                            <label for="message" class="form-label">Write your Query <span
-                                    class="text-danger">*</span></label>
+                            <label for="message" class="form-label">Write your Query</label>
                             <textarea formControlName="desc" class="form-control" id="message" name="message"
                                 rows="3"></textarea>
-                            <div class="error"
-                                *ngIf="bookDemoSession.get('desc')?.invalid && (bookDemoSession.get('desc')?.touched || bookDemoSession.get('desc')?.dirty)">
-                                <div *ngIf="hasError('desc','required')">This is Required*</div>
 
-                            </div>
 
                         </div>
                         <div class="col-12">
