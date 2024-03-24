@@ -21,6 +21,7 @@ export class SignUpPageComponent {
   google() {
     this.googleSignUp.signInWithGoogle().subscribe((res: any) => {
       this.user = res
+      console.log(this.user)
       // debugger
       alert(this.user?.name + " " + this.user?.email)
     })
