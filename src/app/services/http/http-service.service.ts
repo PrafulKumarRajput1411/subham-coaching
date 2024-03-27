@@ -6,28 +6,36 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ScHttpService {
-
+  token: any = ''
   private headers = new Headers();
   private multipartHeaders = new Headers();
   public jsonHTTPOptions: any = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      //'time-zone': Intl.DateTimeFormat().resolvedOptions().timeZone
+      // 'time-zone': Intl.DateTimeFormat().resolvedOptions().timeZone
+      // 'token': this.token
     }
     )
 
     , withCredentials: false
   };
   constructor(private httpClient: HttpClient) {
-    this.headers.append('Content-Type', 'application/json');
+    // this.headers.append('Content-Type', 'application/json');
     this.multipartHeaders.append('Content-Type', 'multipart/form-data; charset=utf-8; boundary=gc0p4Jq0M2Yt08jU534c0p');
 
   }
 
-  getHttpService(url: any, data: any, json?: any) {
-
+  getHttpService(url: any, data: any, header?: any) {
+    let httpHeader = new HttpHeaders({
+      'Content-type': 'application/json'
+    })
+    if (header) {
+      console.log(header)
+      httpHeader = httpHeader.append('token', header)
+    }
+    console.log(httpHeader)
     let promise = new Promise((resolve, reject) => {
-      this.httpClient.get(url, this.jsonHTTPOptions).subscribe(
+      this.httpClient.get(url, { headers: httpHeader }).subscribe(
 
         (res: any) => {
 

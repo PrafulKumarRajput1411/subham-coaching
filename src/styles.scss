@@ -7,13 +7,35 @@
     --dark: #181d38;
 }
 
-.mainHeading {
-    font-family: 'Black Ops One', system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 26px;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+input,
+select,
+option,
+b,
+u,
+textarea,
+table,
+tr,
+td,
+div,
+label,
+form,
+button,
+thead,
+tfoot,
+tbody {
+    font-family: "Heebo", sans-serif !important;
 }
+
 
 select {
     background-color: white !important;

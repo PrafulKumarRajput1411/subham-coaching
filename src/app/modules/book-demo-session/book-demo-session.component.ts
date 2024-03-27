@@ -53,7 +53,7 @@ export class BookDemoSessionComponent {
       type: [''],
       date: ['', [Validators.required]],
       timeSlot: ['', [Validators.required]],
-      desc: ['', [Validators.required]]
+      desc: ['']
     })
   }
   hasError(controlName: string, errorName: string) {

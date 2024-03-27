@@ -4,8 +4,8 @@ export const enviroment = {
 };
 
 export class EnviourmentConstants {
-    public static DOMAINPATH = 'https://shubham-coachingbackend.vercel.app'
-    // public static DOMAINPATH = 'http://localhost:8001'
+    // public static DOMAINPATH = 'https://shubham-coachingbackend.vercel.app'
+    public static DOMAINPATH = 'http://localhost:8001'
 }
 export class ConstantValues {
     public static whatsAppNumber = '6398276273';
@@ -19,4 +19,5 @@ export class ServerUrls {
     public static getAvailableDayList = { url: '/api/get-available-days', method: "GET" }
     public static getListOfAvailableTimeSlot = { url: '/api/get-list-of-avaialbe-time-slot', method: "GET" }
     public static bookDemoSession = { url: '/api/book-demo-session', method: 'POST' }
+    public static login = { url: '/api/login', method: "POST" }
 }

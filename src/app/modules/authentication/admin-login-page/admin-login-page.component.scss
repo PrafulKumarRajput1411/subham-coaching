@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+}
+
+.login-page {
+    width: 100%;
+    height: calc(100vh - 75px);
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+
+.form-right i {
+    font-size: 100px;
+}
