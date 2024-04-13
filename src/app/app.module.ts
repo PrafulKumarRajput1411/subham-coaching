@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthInterceptorService } from './services/interceptor/auth-interceptor/auth-interceptor.service';
+import { SpinnerComponent } from './modules/spinner/spinner.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 // import { GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 // const config = new SocialAuthServiceConfig([
 //   {
@@ -23,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     MainHeaderComponent,
+    SpinnerComponent
     // HomePageComponent
   ],
   imports: [
@@ -32,6 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
+    NgSelectModule,
     NgbModule,
     // SocialLoginModule,
     BrowserAnimationsModule, // required animations module
@@ -58,7 +63,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     //     ]
     //   } as SocialAuthServiceConfig,
     // },
-    // { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
   ],
   bootstrap: [AppComponent]
 })

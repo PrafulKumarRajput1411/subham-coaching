@@ -1,6 +1,7 @@
 import { Injectable, Renderer2 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
+import { ActivatedRoute } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +18,7 @@ export class CommanServiceService {
   })
   public currentData: any;
   constructor(
-
+    private activatedRoutes: ActivatedRoute
   ) {
     this.currentData = this.data.asObservable();
   }
@@ -55,4 +56,8 @@ export class CommanServiceService {
       return false
     }
   }
+  getActivatedRoutes(queryParam?: any) {
+    return this.activatedRoutes.snapshot.queryParamMap;
+  }
+
 }

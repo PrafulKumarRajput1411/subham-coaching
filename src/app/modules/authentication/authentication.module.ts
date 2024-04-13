@@ -6,6 +6,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLoginPageComponent } from './admin-login-page/admin-login-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from 'src/app/guard/auth.guard';
+import { AdminGuardGuard } from 'src/app/guard/admin-guard/admin-guard.guard';
 const router: Routes = [
   { path: '', redirectTo: '/authentication/sign-up', pathMatch: 'full' },
   // { path: 'login', component: LoginPageComponent },

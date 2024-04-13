@@ -1,1 +1,17 @@
-<p>admin-dashboard works!</p>
+<div class="adminMainContainer d-flex">
+    <div class="adminContainerLeftSidebar" [ngStyle]="{'min-width':sideBarIsOpen?'200px':'60px'}">
+        <div class="hamBurger d-flex justify-content-start">
+            <img (click)="closeSideBar()" src="assets/images/img/more.png" class="cursor-pointer" alt="">
+        </div>
+        <ul class="adminSideBarList">
+            <li *ngFor="let item of sideBarUrl" [ngClass]="{ 'activeSideBar': item.id === activeLinkId }">
+                <img (click)="changeTab(item.id)" class="sideBarImages" src="{{item.url}}" alt="">
+                <span *ngIf="sideBarIsOpen" (click)="changeTab(item.id)">{{item.title}}</span>
+            </li>
+
+        </ul>
+    </div>
+    <div style="padding: 15px;">
+        <router-outlet></router-outlet>
+    </div>
+</div>

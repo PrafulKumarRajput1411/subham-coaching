@@ -24,6 +24,18 @@ export class AdminLoginPageComponent {
       id: ['', [Validators.required]],
       password: ['', [Validators.required]]
     })
+    this.checkAlreadyLoginOrNot()
+  }
+  checkAlreadyLoginOrNot() {
+    let authToken = localStorage.getItem('radTuToAu-t-th') ?? '';
+    if (authToken) {
+      let authData = this.commanService.decryptToken(authToken.replaceAll('acbdr87', '+'));
+      if (authData) {
+        if (authData.user_type == 'admin') {
+          this.router.navigateByUrl('/admin/detail/home/admin-dashboard/class')
+        }
+      }
+    }
   }
   login() {
     console.log(this.loginForm)
@@ -43,7 +55,8 @@ export class AdminLoginPageComponent {
           let currentTime = new Date();
           res.data['loginTime'] = currentTime.getTime()
           let token = this.commanService.generateToken(res.JJ_lt_tok);
-          this.router.navigateByUrl('/admin/detail/home/admin-dashboard?token=' + token + '&time=' + currentTime.getTime())
+          localStorage.setItem('radTuToAu-t-th', this.commanService.generateToken(res.data));
+          this.router.navigateByUrl('/admin/detail/home/admin-dashboard')
         }
       }).catch((err: any) => {
         this.isProcessing = false;

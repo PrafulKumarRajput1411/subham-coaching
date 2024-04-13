@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ScHttpService {
   token: any = ''
   private headers = new Headers();
-  private multipartHeaders = new Headers();
+  // private multipartHeaders = new Headers();
   public jsonHTTPOptions: any = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -17,25 +17,18 @@ export class ScHttpService {
     }
     )
 
-    , withCredentials: false
+    , withCredentials: true
   };
   constructor(private httpClient: HttpClient) {
     // this.headers.append('Content-Type', 'application/json');
-    this.multipartHeaders.append('Content-Type', 'multipart/form-data; charset=utf-8; boundary=gc0p4Jq0M2Yt08jU534c0p');
+    // this.multipartHeaders.append('Content-Type', 'multipart/form-data; charset=utf-8; boundary=gc0p4Jq0M2Yt08jU534c0p');
 
   }
 
   getHttpService(url: any, data: any, header?: any) {
-    let httpHeader = new HttpHeaders({
-      'Content-type': 'application/json'
-    })
-    if (header) {
-      console.log(header)
-      httpHeader = httpHeader.append('token', header)
-    }
-    console.log(httpHeader)
+
     let promise = new Promise((resolve, reject) => {
-      this.httpClient.get(url, { headers: httpHeader }).subscribe(
+      this.httpClient.get(url, this.jsonHTTPOptions).subscribe(
 
         (res: any) => {
 

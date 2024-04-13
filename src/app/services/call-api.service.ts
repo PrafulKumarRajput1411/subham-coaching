@@ -40,8 +40,6 @@ export class CallAPIService {
   }
   getListOfAvailableTimeSlot() {
     let token = this.commanService.getAccessToken();
-
-    console.log(token)
     let url = this.mainURl + ServerUrls.getListOfAvailableTimeSlot.url;
     return this.httpService.getHttpService(url, '', token)
   }
@@ -52,5 +50,9 @@ export class CallAPIService {
   login(data: any) {
     let url = this.mainURl + ServerUrls.login.url;
     return this.httpService.postHttpService(url, data);
+  }
+  testing() {
+    let url = this.mainURl + ServerUrls.testing.url;
+    return this.httpService.getHttpService(url, '');
   }
 }

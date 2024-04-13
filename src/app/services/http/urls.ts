@@ -9,7 +9,9 @@ export class EnviourmentConstants {
 }
 export class ConstantValues {
     public static whatsAppNumber = '6398276273';
-    public static email = 'radianttutorials11@gmail.com'
+    public static email = 'radianttutorials11@gmail.com';
+    public static authUser = 'radiaint@tutorial345$%^&';
+    public static authPassword = '&6dfhFF67&78D8KJ8998DF'
 }
 export class ServerUrls {
     public static sendContactUsEmail = { url: '/api/sendEmail', method: "POST" };
@@ -20,4 +22,5 @@ export class ServerUrls {
     public static getListOfAvailableTimeSlot = { url: '/api/get-list-of-avaialbe-time-slot', method: "GET" }
     public static bookDemoSession = { url: '/api/book-demo-session', method: 'POST' }
     public static login = { url: '/api/login', method: "POST" }
+    public static testing = { url: '/api/testing', method: "GET" }
 }
