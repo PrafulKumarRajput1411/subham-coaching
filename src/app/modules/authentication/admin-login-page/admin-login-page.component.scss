@@ -10,6 +10,16 @@ a {
     align-items: center;
 }
 
+.hideShowButton {
+    color: var(--primary);
+    position: absolute;
+    font-size: 12px;
+    right: 9px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 99999
+}
+
 .form-right i {
     font-size: 100px;
 }
