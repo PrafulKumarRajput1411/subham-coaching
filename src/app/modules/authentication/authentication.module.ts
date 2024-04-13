@@ -27,6 +27,8 @@ const router: Routes = [
   ],
   imports: [
     CommonModule,
+    // SocialLoginModule,
+    // GoogleSigninButtonModule,
     RouterModule.forChild(router),
     FormsModule,
     ReactiveFormsModule

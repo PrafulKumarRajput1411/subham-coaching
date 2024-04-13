@@ -23,7 +23,7 @@ export class ChangeTitleService {
 
   }
   changeTitle(title: any) {
-    this.titleService.setTitle('Radiant Tutorials | ' + this.commanService.makeFirstCapitalOfEveryWord(title))
+    this.titleService.setTitle('RT | ' + this.commanService.makeFirstCapitalOfEveryWord(title))
 
   }
 }

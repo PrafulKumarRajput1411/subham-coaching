@@ -21,13 +21,6 @@ import {
 import { AuthInterceptorService } from './services/interceptor/auth-interceptor/auth-interceptor.service';
 import { SpinnerComponent } from './modules/spinner/spinner.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-// import { GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
-// const config = new SocialAuthServiceConfig([
-//   {
-//     id: GoogleLoginProvider.PROVIDER_ID,
-//     provider: new GoogleLoginProvider('YOUR_GOOGLE_CLIENT_ID')
-//   }
-// ]);
 @NgModule({
   declarations: [
     AppComponent,
