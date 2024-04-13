@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { timer } from 'rxjs';
 import { AvailableDaylist, AvailableTimeSlot, BoardList, ClassList } from 'src/app/Interfaces/dataModel';
 import { CallAPIService } from 'src/app/services/call-api.service';
+import { SpinnerService } from 'src/app/services/spinner/spinner.service';
 @Component({
   selector: 'app-book-demo-session',
   templateUrl: './book-demo-session.component.html',
@@ -33,12 +34,12 @@ export class BookDemoSessionComponent {
   constructor(
     private formBuilder: FormBuilder,
     private callAPi: CallAPIService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private loaderService: SpinnerService
   ) {
+    this.loaderService.setLoading(true)
     this.getCurrentDate();
     this.getClassList()
-    this.getBoardList()
-    this.getAvailableDayList();
     // this.getListOfAvailableTimeSlot()
     this.mathsTypeArray = [
       { id: 1, title: 'Core Mathematics' },
@@ -53,23 +54,23 @@ export class BookDemoSessionComponent {
       type: [''],
       date: ['', [Validators.required]],
       timeSlot: ['', [Validators.required]],
-      desc: ['', [Validators.required]]
+      desc: ['']
     })
   }
   hasError(controlName: string, errorName: string) {
     return this.bookDemoSession.controls[controlName].hasError(errorName);
   }
+
   getCurrentDate() {
     // Create a new Date object
     let currentDate = new Date();
     let afterSiz = new Date();
-    afterSiz.setDate(afterSiz.getDate() + 8);
+    afterSiz.setDate(afterSiz.getDate() + 7);
     // Add one day to the current date
     currentDate.setDate(currentDate.getDate() + 1);
-    let finalCurrentDate = String(currentDate.getFullYear()) + '-' + String(currentDate.getMonth() + 1).padStart(2, '0') + '-' + String(currentDate.getDate());
-    let finalAfterSixDayDate = String(afterSiz.getFullYear()) + '-' + String(afterSiz.getMonth() + 1).padStart(2, '0') + '-' + String(afterSiz.getDate());
+    let finalCurrentDate = String(currentDate.getFullYear()) + '-' + String(currentDate.getMonth() + 1).padStart(2, '0') + '-' + String(currentDate.getDate()).padStart(2, '0');
+    let finalAfterSixDayDate = String(afterSiz.getFullYear()) + '-' + String(afterSiz.getMonth() + 1).padStart(2, '0') + '-' + String(afterSiz.getDate()).padStart(2, '0');
     this.minDate = finalCurrentDate
-    console.log(finalAfterSixDayDate)
     this.maxDate = finalAfterSixDayDate
   }
   getClassList() {
@@ -78,14 +79,15 @@ export class BookDemoSessionComponent {
       if (res.data.length > 0) {
         this.classArray = res.data;
       }
+      this.getBoardList()
     })
   }
   getBoardList() {
-    console.log("hel")
     this.callAPi.getBoardList().then((res: any) => {
       if (res.data.length > 0) {
         this.boardArry = res.data
       }
+      this.getAvailableDayList()
     })
   }
   getListOfAvailableTimeSlot(uuidOfDay?: any) {
@@ -109,6 +111,7 @@ export class BookDemoSessionComponent {
   getAvailableDayList() {
     this.callAPi.getAvailableDayList().then((res: any) => {
       this.availableDayList = res.data
+      this.loaderService.setLoading(false)
     })
   }
   selectClass(event: any) {

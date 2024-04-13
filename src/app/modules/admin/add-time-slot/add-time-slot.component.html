@@ -1,0 +1,75 @@
+<div class="timeSlotContainer">
+    <div class="timeSlotHeading mb-4">
+        <span class="font-weight-800 ">Available Time Slot</span>
+    </div>
+    <div class="timeContainer">
+        <form [formGroup]="slotForm">
+            <div formArrayName="days">
+                <div *ngFor="let dayItem of getItemArray().controls;let i=index" [formGroupName]="i">
+                    <div class="mb-2">
+                        <span class="font-weight-800 font-size-16">{{dayItem.get('day')?.value}}</span>
+                        <span (click)="addItemSlot(i)" class="font-size-12"
+                            style="color: var(--primary); margin-left: 5px; cursor: pointer;">Add
+                            More</span>
+                    </div>
+                    <div class="slotContainer d-flex align-items-center  ">
+                        <!--  -->
+                        <!-- formArrayName="time" -->
+                        <div formArrayName="time" class="d-flex" style="flex-wrap: wrap;">
+                            <div *ngFor="let items of getSubArray(i).controls;let j=index" style="margin-right: 10px;"
+                                [formGroupName]="j">
+                                <div class="slotOptionContainer  ">
+                                    <img (click)="removeIcon(j,i)" class="minusIcon"
+                                        src="assets/images/img/circle-minus-outline_minor.svg" alt="">
+                                    <div class="startTimeContainer d-flex">
+                                        <div class="form-group">
+                                            <label for="startTime " class="font-size-12"> Start Time</label>
+                                            <div class="d-flex align-items-center">
+                                                <ng-select class="customTimeSlotNgSelect" [items]="hours"
+                                                    formControlName="startHours" bindLabel="hours" [clearable]="false"
+                                                    [searchable]="false" bindValue="hours">
+                                                </ng-select>
+                                                <span class="font-weight-800  font-size-24 mx-2">:</span>
+                                                <ng-select class="customTimeSlotNgSelect" [items]="minutes"
+                                                    formControlName="startMins" bindLabel="minutes" [clearable]="false"
+                                                    [searchable]="false" bindValue="minutes">
+                                                </ng-select>
+                                                <ng-select class="customTimeSlotNgSelect" style="margin-left: 20px;"
+                                                    formControlName="startIsAm" [items]="amPM" bindLabel="amPM"
+                                                    [clearable]="false" [searchable]="false" bindValue="amPM">
+                                                </ng-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="endTimeContainer">
+                                        <div class="form-group">
+                                            <label for="startTime " class="font-size-12"> End Time</label>
+                                            <div class="d-flex align-items-center">
+                                                <ng-select class="customTimeSlotNgSelect" [items]="hours"
+                                                    formControlName="endHours" bindLabel="hours" [clearable]="false"
+                                                    [searchable]="false" bindValue="hours">
+                                                </ng-select>
+                                                <span class="font-weight-800  font-size-24 mx-2">:</span>
+                                                <ng-select formControlName="endMins" class="customTimeSlotNgSelect"
+                                                    [items]="minutes" bindLabel="minutes" [clearable]="false"
+                                                    [searchable]="false" bindValue="minutes">
+                                                </ng-select>
+                                                <ng-select class="customTimeSlotNgSelect" style="margin-left: 20px;"
+                                                    formControlName="endIsAm" [items]="amPM" bindLabel="amPM"
+                                                    [clearable]="false" [searchable]="false" bindValue="amPM">
+                                                </ng-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

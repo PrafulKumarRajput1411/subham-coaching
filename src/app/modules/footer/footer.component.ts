@@ -36,6 +36,9 @@ export class FooterComponent {
     this.changeTitle.changeTitle('Book Demo Session');
     this.router.navigateByUrl('/book-demo-session')
   }
+  goToAdminLogin() {
+    this.router.navigateByUrl('/authentication/admin-login')
+  }
   goToContactUsPage() {
     this.sharedData.selectedId = 3;
     this.router.navigateByUrl('/contact-us')

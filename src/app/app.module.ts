@@ -18,10 +18,22 @@ import {
   FacebookLoginProvider,
   GoogleSigninButtonModule
 } from '@abacritt/angularx-social-login';
+import { AuthInterceptorService } from './services/interceptor/auth-interceptor/auth-interceptor.service';
+import { SpinnerComponent } from './modules/spinner/spinner.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+// import { GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+// const config = new SocialAuthServiceConfig([
+//   {
+//     id: GoogleLoginProvider.PROVIDER_ID,
+//     provider: new GoogleLoginProvider('YOUR_GOOGLE_CLIENT_ID')
+//   }
+// ]);
 @NgModule({
   declarations: [
     AppComponent,
     MainHeaderComponent,
+    SpinnerComponent
+    // HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +43,7 @@ import {
     AppRoutingModule,
     GoogleSigninButtonModule,
     SocialLoginModule,
+    NgSelectModule,
     NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
@@ -53,7 +66,8 @@ import {
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
   ],
   bootstrap: [AppComponent]
 })

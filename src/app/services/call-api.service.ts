@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnviourmentConstants, ServerUrls } from './http/urls';
 import { ScHttpService } from './http/http-service.service';
+import { CommanServiceService } from './comman/comman-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class CallAPIService {
   constructor(
     private http: HttpClient,
     private httpService: ScHttpService,
+    private commanService: CommanServiceService
   ) {
     this.mainURl = EnviourmentConstants.DOMAINPATH;
   }
@@ -37,11 +39,20 @@ export class CallAPIService {
     return this.httpService.getHttpService(url, '');
   }
   getListOfAvailableTimeSlot() {
+    let token = this.commanService.getAccessToken();
     let url = this.mainURl + ServerUrls.getListOfAvailableTimeSlot.url;
-    return this.httpService.getHttpService(url, '')
+    return this.httpService.getHttpService(url, '', token)
   }
   bookDemoSession(data: any) {
     let url = this.mainURl + ServerUrls.bookDemoSession.url;
     return this.httpService.postHttpService(url, data)
+  }
+  login(data: any) {
+    let url = this.mainURl + ServerUrls.login.url;
+    return this.httpService.postHttpService(url, data);
+  }
+  testing() {
+    let url = this.mainURl + ServerUrls.testing.url;
+    return this.httpService.getHttpService(url, '');
   }
 }

@@ -18,6 +18,7 @@ import { SocialLoginModule } from '@abacritt/angularx-social-login';
 import { AboutHeaderComponent } from './about/about-header/about-header.component';
 import { AboutBodyComponent } from './about/about-body/about-body.component';
 import { AboutDetailComponent } from './about/about-detail/about-detail.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { AboutDetailComponent } from './about/about-detail/about-detail.componen
     AboutDetailComponent,
     ContactUsComponent,
     TestimonialsComponent,
-    BookDemoSessionComponent
+    BookDemoSessionComponent,
   ],
   imports: [
     CommonModule,

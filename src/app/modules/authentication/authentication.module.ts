@@ -5,11 +5,16 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { RouterModule, Routes } from '@angular/router';
 import { GoogleSigninButtonModule, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { AdminLoginPageComponent } from './admin-login-page/admin-login-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from 'src/app/guard/auth.guard';
+import { AdminGuardGuard } from 'src/app/guard/admin-guard/admin-guard.guard';
 const router: Routes = [
   { path: '', redirectTo: '/authentication/sign-up', pathMatch: 'full' },
-  { path: 'login', component: LoginPageComponent },
-  { path: 'sign-up', component: SignUpPageComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent }
+  // { path: 'login', component: LoginPageComponent },
+  // { path: 'sign-up', component: SignUpPageComponent },
+  // { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'admin-login', component: AdminLoginPageComponent }
 ]
 
 
@@ -17,13 +22,14 @@ const router: Routes = [
   declarations: [
     LoginPageComponent,
     SignUpPageComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    AdminLoginPageComponent
   ],
   imports: [
     CommonModule,
-    // SocialLoginModule,
-    GoogleSigninButtonModule,
-    RouterModule.forChild(router)
+    RouterModule.forChild(router),
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthenticationModule { }
