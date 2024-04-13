@@ -17,7 +17,8 @@ export class AdminDashboardComponent {
   sideBarIsOpen: boolean = true;
   constructor(
     private callAPI: CallAPIService,
-    private router: Router
+    private router: Router,
+    private commanService: CommanServiceService
   ) {
     fromEvent(window, 'resize')
       .pipe(
@@ -85,5 +86,9 @@ export class AdminDashboardComponent {
   }
   closeSideBar() {
     this.sideBarIsOpen = !this.sideBarIsOpen
+  }
+  logout() {
+    this.commanService.logout()
+    this.router.navigateByUrl('/authentication/admin-login')
   }
 }

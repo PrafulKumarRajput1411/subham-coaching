@@ -8,6 +8,12 @@
                 <img (click)="changeTab(item.id)" class="sideBarImages" src="{{item.url}}" alt="">
                 <span *ngIf="sideBarIsOpen" (click)="changeTab(item.id)">{{item.title}}</span>
             </li>
+            <li (click)="logout()">
+                <img src="assets/images/img/back-button.png" class="sideBarImages" alt="">
+                <span *ngIf="sideBarIsOpen">
+                    Logout
+                </span>
+            </li>
 
         </ul>
     </div>

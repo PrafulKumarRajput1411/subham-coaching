@@ -13,6 +13,7 @@ import { CommanServiceService } from 'src/app/services/comman/comman-service.ser
 export class AdminLoginPageComponent {
   loginForm: FormGroup;
   isProcessing: boolean = false;
+  isShow: boolean = false;
   constructor(
     private formBuilder: FormBuilder,
     private callAPI: CallAPIService,
@@ -63,6 +64,9 @@ export class AdminLoginPageComponent {
         this.toast.error("Something Went Wrong!")
       })
     }
+  }
+  showPassword() {
+    this.isShow = !this.isShow
   }
   hasError(error: any, field: any) {
     return this.loginForm.get(field)?.hasError(error);

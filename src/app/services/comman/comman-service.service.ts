@@ -73,5 +73,7 @@ export class CommanServiceService {
   getActivatedRoutes(queryParam?: any) {
     return this.activatedRoutes.snapshot.queryParamMap;
   }
-
+  logout() {
+    localStorage.removeItem('radTuToAu-t-th')
+  }
 }
