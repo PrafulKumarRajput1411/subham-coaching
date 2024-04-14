@@ -11,9 +11,9 @@ import { AuthGuard } from 'src/app/guard/auth.guard';
 import { AdminGuardGuard } from 'src/app/guard/admin-guard/admin-guard.guard';
 const router: Routes = [
   { path: '', redirectTo: '/authentication/sign-up', pathMatch: 'full' },
-  // { path: 'login', component: LoginPageComponent },
-  // { path: 'sign-up', component: SignUpPageComponent },
-  // { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'sign-up', component: SignUpPageComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'admin-login', component: AdminLoginPageComponent }
 ]
 
