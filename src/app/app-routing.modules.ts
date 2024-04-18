@@ -14,7 +14,8 @@ const routes: Routes = [
     { path: 'courses', component: CoursesComponent },
     { path: 'contact-us', component: ContactUsComponent },
     { path: 'book-demo-session', component: BookDemoSessionComponent },
-    // { path: 'authentication', loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule) }
+    { path: 'authentication', loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule) },
+    { path: 'admin/detail/home', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({

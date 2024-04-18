@@ -7,13 +7,35 @@
     --dark: #181d38;
 }
 
-.mainHeading {
-    font-family: 'Black Ops One', system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 26px;
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+input,
+select,
+option,
+b,
+u,
+textarea,
+table,
+tr,
+td,
+div,
+label,
+form,
+button,
+thead,
+tfoot,
+tbody {
+    font-family: "Heebo", sans-serif !important;
 }
+
 
 select {
     background-color: white !important;
@@ -29,6 +51,10 @@ select {
 
 .font-weight-600 {
     font-weight: 600 !important;
+}
+
+.font-weight-800 {
+    font-weight: 800 !important;
 }
 
 .fw-semi-bold {
@@ -73,6 +99,10 @@ select {
 
 .font-size-16 {
     font-size: 16px !important;
+}
+
+.font-size-24 {
+    font-size: 24px !important;
 }
 
 /*** Spinner ***/

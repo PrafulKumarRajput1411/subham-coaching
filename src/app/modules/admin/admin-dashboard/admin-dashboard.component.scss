@@ -1,0 +1,55 @@
+.adminContainerLeftSidebar {
+
+    height: calc(100vh - 80px);
+    box-shadow: 8px 0 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 76px;
+}
+
+.sideBarImages {
+    height: 25px;
+}
+
+.hamBurger {
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.hamBurger img {
+    height: 25px;
+}
+
+.adminSideBarList {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.adminSideBarList li {
+    padding: 15px 0px 15px 15px;
+}
+
+.adminSideBarList li:hover {
+    background-color: #06BBCC !important;
+}
+
+.adminSideBarList li:hover span,
+img {
+    color: white;
+}
+
+.activeSideBar {
+    background-color: #06BBCC;
+}
+
+.activeSideBar span {
+    color: white;
+}
+
+.adminSideBarList li span {
+    cursor: pointer;
+}
+
+.adminSideBarList li img {
+    margin-right: 10px;
+    cursor: pointer;
+}

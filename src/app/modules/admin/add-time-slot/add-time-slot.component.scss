@@ -1,0 +1,82 @@
+.timeSlotHeading {
+    span {
+        font-size: 20px;
+    }
+}
+
+.slotOptionContainer {
+    box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+    // margin-right: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.minusIcon {
+    position: absolute;
+    right: 5px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.slotContainer {
+    flex-wrap: wrap;
+}
+
+.endTimeContainer {
+    margin-top: 10px;
+}
+
+.addMoreButton {
+    border: 1px solid var(--primary);
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px 13px;
+}
+
+.addMoreButton:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+select option:hover {
+    background-color: red !important;
+}
+
+::ng-deep .customTimeSlotNgSelect {
+    border-bottom: 1px solid var(--primary) !important;
+    width: 32px;
+    // padding: 2px;
+    border-radius: 5px;
+    cursor: pointer !important;
+    background-color: #f6f6f6;
+    height: 27px;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+::ng-deep .customTimeSlotNgSelect .ng-option-selected {
+    background-color: var(--primary);
+}
+
+::ng-deep .customTimeSlotNgSelect ng-dropdown-panel .ng-dropdown-panel-items.scroll-host {
+    max-height: 145px;
+}
+
+::ng-deep .customTimeSlotNgSelect .ng-value-container {
+    justify-content: center !important;
+}
+
+::ng-deep .customTimeSlotNgSelect ng-dropdown-panel {
+    background-color: white;
+    border: 1px solid var(--primary);
+    top: 27px;
+    left: 1px;
+    border-top: none;
+    border-radius: 5px;
+}
+
+::ng-deep .customTimeSlotNgSelect ng-dropdown-panel .ng-option:hover {
+    background-color: var(--primary);
+}
