@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Form, FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { CallAPIService } from 'src/app/services/call-api.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class AddTimeSlotComponent {
   ]
   constructor(
     private formBuilder: FormBuilder,
-    private callAPI: CallAPIService
+    private callAPI: CallAPIService,
+    private toastr: ToastrService
   ) {
     this.slotForm = this.formBuilder.group({
       days: this.formBuilder.array([])
@@ -31,21 +33,52 @@ export class AddTimeSlotComponent {
           (<FormArray>this.slotForm.get('days')).push(this.formBuilder.group({
             day: [element.days_value],
             uuid: [element.days_uuid],
-            time: this.formBuilder.array([this.addTime()])
+            time: this.formBuilder.array([])
           }))
         })
       }
-      // this.getItemArray()
-      console.log((this.slotForm.get('days') as FormArray).controls)
-      let item = this.getItemArray().controls;
-      console.log(item)
-      item.forEach((element: any, index: any) => {
-        // console.log(element)
-        // console.log(this.getSubArray(element))
+
+      this.callAPI.getListOfAvailableTimeSlot().then((timeList: any) => {
+        (this.slotForm.get('days') as FormArray).controls.forEach((element: any, index: number) => {
+          let items = timeList.data.filter(((data: any) => data.available_day_uuid == element.value.uuid))
+          // element.time.patchValue({})
+          if (items.length > 0) {
+            items.forEach((ele: any) => {
+              (element.get('time') as FormArray).push(this.formBuilder.group({
+                uuid: [ele.time_slot_uuid],
+                dayUuid: [ele.available_day_uuid],
+                startHours: [ele.start_time_hour],
+                startMins: [ele.start_time_min],
+                startIsAm: [ele.is_start_AM ? 'AM' : 'PM'],
+                endHours: [ele.end_time_hour],
+                endMins: [ele.end_time_min],
+                endIsAm: [ele.is_end_AM ? 'AM' : 'PM'],
+              }))
+            })
+          }
+          // let newTimeArray: FormArray<any>;
+          // if (items.length > 0) {
+          //   items.forEach((timeItem: any) => {
+          //     let obj = {
+          //       uuid: [timeItem.time_slot_uuid],
+          //       dayUuid: [timeItem.available_day_uuid],
+          //       startHours: [timeItem.start_time_hour],
+          //       startMins: [timeItem.start_time_min],
+          //       startIsAm: [timeItem.is_start_AM ? 'AM' : 'PM'],
+          //       endHours: [timeItem.end_time_hour],
+          //       endMins: [timeItem.end_time_min],
+          //       endIsAm: [timeItem.is_end_AM ? 'AM' : 'PM'],
+          //     }
+          //     // newTimeArray.push(obj);
+          //   })
+          // }
+
+        })
+      }).catch((error: any) => {
+        this.toastr.error(error.message ? error.message : "Something Went Wrong!");
       })
-      this.getData()
-
-
+    }).catch((error: any) => {
+      this.toastr.error(error.message ? error.message : "Something Went Wrong!");
     })
   }
   getData() {

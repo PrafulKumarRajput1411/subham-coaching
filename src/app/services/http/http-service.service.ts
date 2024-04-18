@@ -25,7 +25,7 @@ export class ScHttpService {
 
   }
 
-  getHttpService(url: any, data: any, header?: any) {
+  getHttpService(url: any, data: any) {
 
     let promise = new Promise((resolve, reject) => {
       this.httpClient.get(url, this.jsonHTTPOptions).subscribe(

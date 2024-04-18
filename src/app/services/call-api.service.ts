@@ -39,9 +39,8 @@ export class CallAPIService {
     return this.httpService.getHttpService(url, '');
   }
   getListOfAvailableTimeSlot() {
-    let token = this.commanService.getAccessToken();
     let url = this.mainURl + ServerUrls.getListOfAvailableTimeSlot.url;
-    return this.httpService.getHttpService(url, '', token)
+    return this.httpService.getHttpService(url, '')
   }
   bookDemoSession(data: any) {
     let url = this.mainURl + ServerUrls.bookDemoSession.url;
